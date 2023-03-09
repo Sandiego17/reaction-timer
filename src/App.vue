@@ -1,12 +1,16 @@
 <template>
   <h1>Henry's Reaction Timer</h1>
-  <button @click="start">Play</button>
+  <button @click="start" :disabled="isPlaying">Play</button>
+  <Block v-if="isPlaying" :delay="delay" />
 </template>
 
 <script>
+import { is } from '@babel/types'
+import Block from './components/Block.vue'
+
 export default {
   name: 'App',
-  components: { },
+  components: { Block },
   data() {
     return {
       isPlaying: false,
@@ -17,7 +21,7 @@ export default {
     start() {
       this.delay = 2000 + Math.random() * 5000
       this.isPlaying = true
-      console.log(this.delay)
+      // console.log(this.delay)
     }
   }
 }
