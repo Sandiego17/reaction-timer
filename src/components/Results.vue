@@ -1,11 +1,11 @@
 <template>
-    <div>
-
-    </div>
+    <p>Reaction time - {{ score }} ms</p>
 </template>
 
-<script setup>
-
+<script>
+export default {
+    props: ['score']
+}
 </script>
 
 <style lang="scss" scoped>
